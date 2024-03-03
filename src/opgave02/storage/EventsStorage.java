@@ -2,10 +2,8 @@ package opgave02.storage;
 
 import com.google.gson.*;
 import com.google.gson.reflect.TypeToken;
-import opgave01.models.Person;
 import opgave02.models.Event;
 import opgave02.models.Tag;
-import opgave02.models.TagsData;
 
 import java.io.IOException;
 import java.lang.reflect.Type;
@@ -14,9 +12,7 @@ import java.net.URISyntaxException;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
