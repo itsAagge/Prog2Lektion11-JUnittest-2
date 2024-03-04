@@ -9,7 +9,7 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class EaaaFileStorage {
+public class EaaaFileStorage implements FileStorage {
     private List<Person> people = new ArrayList<>();
     Gson gson = new GsonBuilder()
             .setPrettyPrinting()
@@ -21,22 +21,25 @@ public class EaaaFileStorage {
         load();
     }
 
+    @Override
     public List<Person> getPeople() {
         return new ArrayList<>(people);
     }
 
+    @Override
     public void addPerson(Person person) {
         people.add(person);
     }
 
-    private void load() {
-        try (FileReader fileReader = new FileReader(file)) {
+    public void load() {
+        try (FileReader fileReader = new FileReader(EaaaFileStorage.file)) {
             people = gson.fromJson(fileReader, new TypeToken<ArrayList<Person>>(){}.getType());
         } catch (Exception exception) {
             System.out.println(exception.getMessage());
         }
     }
 
+    @Override
     public void save() {
         try (FileWriter fileWriter = new FileWriter(file)){
             gson.toJson(people, fileWriter);
