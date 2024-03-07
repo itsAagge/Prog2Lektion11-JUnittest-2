@@ -6,9 +6,20 @@ import java.util.List;
 public class Event {
     private String name;
     private Organizer organizer;
+    private Tag tag;
     private List<Occurrence> occurrences;
     private String description;
     private String image;
+
+    public Event(String name, Organizer organizer, Tag tag) {
+        this.name = name;
+        this.organizer = organizer;
+        this.tag = tag;
+    }
+
+    public Organizer getOrganizer() {
+        return organizer;
+    }
 
     @Override
     public String toString() {
